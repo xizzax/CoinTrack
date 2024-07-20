@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:test_project/screens/auth/signup.dart';
 import 'package:test_project/styles/colors.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -17,8 +16,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   void _onIntroEnd(context) {
     log("done pressed");
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const SignUpScreen()));
+    Navigator.pushReplacementNamed(context, 'signup');
   }
 
   Widget _buildImage(String assetName, [double width = 400]) {
@@ -150,7 +148,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
       ],
       onDone: () => _onIntroEnd(context),
-      onSkip: () => _onIntroEnd(context), // You can override onSkip callback
+      onSkip: () => _onIntroEnd(context),
       showSkipButton: true,
       showNextButton: true,
       skipOrBackFlex: 0,
